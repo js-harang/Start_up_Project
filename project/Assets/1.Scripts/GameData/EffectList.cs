@@ -6,7 +6,7 @@ public enum EffectList
 {
 	None = -1,
 	
-    df = 0,
-    dfqwe = 1,
+    bulletHole = 0,
+    flash = 1,
 
 }

@@ -23,7 +23,6 @@ public class EffectTool : EditorWindow
     {
         effectData = ScriptableObject.CreateInstance<EffectData>();
         effectData.LoadData();
-
         EffectTool window = GetWindow<EffectTool>(false, "Effect Tool");
         window.Show();
     }
@@ -34,12 +33,12 @@ public class EffectTool : EditorWindow
         {
             return;
         }
+
         EditorGUILayout.BeginVertical();
         {
             UnityObject source = effectSource;
             EditorHelper.EditorToolTopLayer(effectData, ref selection, ref source, this.uiWidthMiddle);
             effectSource = (GameObject)source;
-
             EditorGUILayout.BeginHorizontal();
             {
                 // 데이터 부분
@@ -56,16 +55,21 @@ public class EffectTool : EditorWindow
                             EditorGUILayout.BeginVertical();
                             {
                                 EditorGUILayout.Separator();
+
                                 EditorGUILayout.LabelField("ID", selection.ToString(), GUILayout.Width(uiWidthLarge));
                                 effectData.names[selection] = EditorGUILayout.TextField("이름", effectData.names[selection], GUILayout.Width(uiWidthLarge * 1.5f));
                                 effectData.effectClips[selection].effectType = (EffectType)EditorGUILayout.EnumPopup("이펙트 타입", effectData.effectClips[selection].effectType, GUILayout.Width(uiWidthLarge));
+                                
                                 EditorGUILayout.Separator();
+
                                 if(effectSource == null && effectData.effectClips[selection].effectName != string.Empty)
                                 {
                                     effectData.effectClips[selection].PreLoad();
                                     effectSource = Resources.Load(effectData.effectClips[selection].effectPath + effectData.effectClips[selection].effectName) as GameObject;
                                 }
+
                                 effectSource = (GameObject)EditorGUILayout.ObjectField("이펙트", this.effectSource, typeof(GameObject), false, GUILayout.Width(uiWidthLarge * 1.5f));
+                                
                                 if(effectSource != null)
                                 {
                                     effectData.effectClips[selection].effectPath = EditorHelper.GetPath(this.effectSource);
@@ -77,6 +81,7 @@ public class EffectTool : EditorWindow
                                     effectData.effectClips[selection].effectName = string.Empty;
                                     effectSource = null;
                                 }
+
                                 EditorGUILayout.Separator();
                             }
                             EditorGUILayout.EndVertical();
@@ -91,6 +96,7 @@ public class EffectTool : EditorWindow
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.Separator();
+
         // 하단
         EditorGUILayout.BeginHorizontal();
         {
@@ -101,6 +107,7 @@ public class EffectTool : EditorWindow
                 selection = 0;
                 this.effectSource = null;
             }
+
             if (GUILayout.Button("Save"))
             {
                 EffectTool.effectData.SaveData();
@@ -116,6 +123,7 @@ public class EffectTool : EditorWindow
         string enumName = "EffectList";
         StringBuilder builder = new StringBuilder();
         builder.AppendLine();
+
         for(int i = 0; i < effectData.names.Length; i++)
         {
             if(effectData.names[i] != string.Empty)
@@ -123,6 +131,7 @@ public class EffectTool : EditorWindow
                 builder.AppendLine("    " + effectData.names[i] + " = " + i + ",");
             }
         }
+
         EditorHelper.CreateEnumStructure(enumName, builder);
     }
 }
