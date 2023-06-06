@@ -6,4 +6,7 @@ public enum EffectList
 {
 	None = -1,
 	
+    df = 0,
+    dfqwe = 1,
+
 }
