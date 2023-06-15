@@ -19,4 +19,5 @@ public class EnemyVariables
     public float currentShots;
     public float shotsInRounds;
     public float blindEngageTimer;
+    internal int waitRounds;
 }

@@ -217,6 +217,7 @@ public class BehaviourController : MonoBehaviour
                     if (behaviour1.isActiveAndEnabled && currentBehaviour == behaviour1.GetBehaviourCode)
                     {
                         behaviour1.OnOverride();
+
                         break;
                     }
                 }

@@ -18,9 +18,9 @@ public class StateController : MonoBehaviour
     {
         get
         {
-            foreach(ClassStats.Sheet sheet in statData.sheets)
+            foreach (ClassStats.Sheet sheet in statData.sheets)
             {
-                foreach(ClassStats.Param param in sheet.list)
+                foreach (ClassStats.Param param in sheet.list)
                 {
                     if (param.ID.Equals(this.classID))
                     {
@@ -77,7 +77,7 @@ public class StateController : MonoBehaviour
 
     public void TransitionToState(State nextState, Decision dicision)
     {
-        if(nextState != remainState)
+        if (nextState != remainState)
         {
             currentState = nextState;
         }
@@ -162,7 +162,7 @@ public class StateController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(currentState != null)
+        if (currentState != null)
         {
             Gizmos.color = currentState.sceneGizmoColor;
             Gizmos.DrawWireSphere(transform.position + Vector3.up * 2.5f, 2f);
@@ -186,9 +186,9 @@ public class StateController : MonoBehaviour
 
     public bool IsNearOtherSpot(Vector3 spot, float margin = 1f)
     {
-        foreach(KeyValuePair<int, Vector3> usedSpot in coverSpot)
+        foreach (KeyValuePair<int, Vector3> usedSpot in coverSpot)
         {
-            if(usedSpot.Key != gameObject.GetHashCode() && Vector3.Distance(spot, usedSpot.Value) <= margin)
+            if (usedSpot.Key != gameObject.GetHashCode() && Vector3.Distance(spot, usedSpot.Value) <= margin)
             {
                 return true;
             }
