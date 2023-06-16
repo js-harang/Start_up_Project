@@ -116,7 +116,7 @@ public class StateController : MonoBehaviour
 
     private void Awake()
     {
-        if (CoverSpot == null)
+        if (coverSpot == null)
         {
             coverSpot = new Dictionary<int, Vector3>();
         }

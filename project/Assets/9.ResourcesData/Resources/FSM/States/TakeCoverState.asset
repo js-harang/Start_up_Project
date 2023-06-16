@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366563220397be24e9365cc468c30b77, type: 3}
+  m_Name: TakeCoverState
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: b85206c1cb45a014fa7b588dc5bc6bd0, type: 2}
+  - {fileID: 11400000, guid: 2002385cdca6aee41b2da0cc745727aa, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 5776c9dbaf9bd76459e1b831c041a48e, type: 2}
+    trueState: {fileID: 11400000, guid: 817b662c9cb46f04db068d83e3845b2a, type: 2}
+    falseState: {fileID: 11400000, guid: eac426e8fc0dae44db1cc2d4bf17d5e0, type: 2}
+  - decision: {fileID: 11400000, guid: a847e860794a0ac4cbc69471eca57a04, type: 2}
+    trueState: {fileID: 11400000, guid: eac426e8fc0dae44db1cc2d4bf17d5e0, type: 2}
+    falseState: {fileID: 11400000, guid: 817b662c9cb46f04db068d83e3845b2a, type: 2}
+  sceneGizmoColor: {r: 0.86274517, g: 0.7058824, b: 0.2901961, a: 1}

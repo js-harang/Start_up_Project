@@ -49,7 +49,7 @@ public class AimBehaviour : GenericBehaviour
 
         if (peekCorner)
         {
-            // 조준 중일때 상체만 살짝 이루임
+            // 조준 중일때 상체만 살짝 기울임
             myTransform.rotation = Quaternion.LookRotation(-behaviourController.GetLastDirection());
             targetRotation *= Quaternion.Euler(initialRootRotation);
             targetRotation *= Quaternion.Euler(initialHipRotation);
@@ -72,9 +72,9 @@ public class AimBehaviour : GenericBehaviour
 
     private IEnumerator ToggleAimOn()
     {
-        yield return new WaitForSeconds(0.0f);
+        yield return new WaitForSeconds(0.05f);
 
-        // 조준이 불가능한 상태일 때
+        // 조준이 불가능한 상태일 때 예외처리
         if (behaviourController.GetTempLockStatus(this.behaviourCode) || behaviourController.IsOverriding(this))
         {
             yield return false;

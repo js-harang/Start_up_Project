@@ -76,7 +76,7 @@ public class AttackAction : Action
     {
         float distance = (controller.personalTarget - controller.enemyAnimation.gunMuzzle.position).sqrMagnitude;
 
-        if (controller.Aiming && (controller.enemyAnimation.currentAimingAngleGap < aimAngleGap || distance <= 0.5f))
+        if (controller.Aiming && (controller.enemyAnimation.currentAimingAngleGap < aimAngleGap || distance <= 5.0f))
         {
             if (controller.variables.startShootTimer >= startShootDelay)
             {
@@ -98,7 +98,7 @@ public class AttackAction : Action
             controller.enemyAnimation.anim.SetTrigger(AnimatorKey.Shooting);
             CastShot(controller);
         }
-        else if (controller.variables.shotTimer >= (0.1f * 2f * Time.deltaTime))
+        else if (controller.variables.shotTimer >= (0.1f + 2f * Time.deltaTime))
         {
             controller.bullets = Mathf.Max(--controller.bullets, 0);
             controller.variables.currentShots++;

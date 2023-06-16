@@ -177,7 +177,7 @@ public class ShootBehaviour : GenericBehaviour
 
                     if (hit.collider)
                     {
-                        hit.collider.SendMessageUpwards("HitCallback",
+                        hit.collider.SendMessageUpwards("HitCallBack",
                             new HealthBase.DamageInfo(hit.point, ray.direction, weapons[weapon].bulletDamage, hit.collider),
                             SendMessageOptions.DontRequireReceiver);
                     }
